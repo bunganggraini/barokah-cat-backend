@@ -8,6 +8,10 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
+app.get("/", (req, res) => {
+  res.send("Barokah Cat Backend is Running");
+});
+
 app.use("/api", colorRoute)
 
 setTimeout(() => {
