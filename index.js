@@ -10,9 +10,11 @@ app.use(express.json())
 
 app.use("/api", colorRoute)
 
-db.sequelize.sync().then(() => {
+setTimeout(() => {
+  db.sequelize.sync().then(() => {
     const PORT = process.env.PORT || 4000;
     app.listen(PORT, () => {
-        console.log(`Server Running on port ${PORT}`);
+      console.log(`Server Running on port ${PORT}`);
     });
-})
+  });
+}, 5000); // Delay 5 detik
